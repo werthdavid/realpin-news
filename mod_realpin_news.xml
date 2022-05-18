@@ -1,0 +1,46 @@
+﻿<?xml version="1.5" encoding="utf-8"?>
+<extension type="module" client="site" version="4.0" method="upgrade">
+	<name>RealPin News Module</name>
+	<creationDate>May 2022</creationDate>
+	<copyright>Copyright (C) 2008 Open Source Matters. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<author>Marcel Toerpe</author>
+	<authorEmail>info@frumania.com</authorEmail>
+	<authorUrl>http://www.frumania.com</authorUrl>
+	<version>2.0.0</version>
+	<description>mod_realpin_news</description>
+	<namespace path="src">Joomla\Module\RealpinNews</namespace>
+	<files>
+		<filename module="mod_realpin_news">mod_realpin_news.php</filename>
+		<filename module="mod_realpin_news">tmpl/default.php</filename>
+		<filename module="mod_realpin_news">logo.png</filename>
+	</files>
+
+	<params>
+	    <param name="showall" type="radio" label="REALPIN_MENU_CATEGORY_LIST_LABEL5" default="0" description="REALPIN_MENU_CATEGORY_LIST_LABEL5_DESC">
+        	<option value="1">Ja</option> 
+        	<option value="0">Nein</option> 
+        </param> 
+		<param name="pinboard" type="sql" default="5" label="REALPIN_MENU_CATEGORY_LIST_LABEL1" description="REALPIN_MENU_CATEGORY_LIST_LABEL1_DESC" query="SELECT config_id, config_name FROM #__realpin_settings WHERE published = 1 AND config_community = 0 AND config_name NOT LIKE 'default_private' AND config_name NOT LIKE 'default_private_global' ORDER BY config_name ASC" key_field="config_id" value_field="config_name"  />
+		<param name="news" type="text" default="5" label="REALPIN_MENU_CATEGORY_LIST_LABEL2" description="REALPIN_MENU_CATEGORY_LIST_LABEL2_DESC" />
+		<param name="target" type="text" default="_self" label="REALPIN_MENU_CATEGORY_LIST_LABEL3" description="REALPIN_MENU_CATEGORY_LIST_LABEL3_DESC" />
+		<param name="image" type="text" default="default" label="REALPIN_MENU_CATEGORY_LIST_LABEL4" description="REALPIN_MENU_CATEGORY_LIST_LABEL4_DESC" />
+	</params>
+	
+	<config>
+	<fields name="params">
+	<fieldset name="basic">
+	    <field name="showall" type="radio" label="REALPIN_MENU_CATEGORY_LIST_LABEL5" default="0" description="REALPIN_MENU_CATEGORY_LIST_LABEL5_DESC"> 
+        	<option value="1">Ja</option> 
+        	<option value="0">Nein</option> 
+        </field> 
+        <field name="pinboard" type="sql" default="5" label="REALPIN_MENU_CATEGORY_LIST_LABEL1" description="REALPIN_MENU_CATEGORY_LIST_LABEL1_DESC" query="SELECT config_id, config_name FROM #__realpin_settings WHERE published = 1 AND config_community = 0 AND config_name NOT LIKE 'default_private' AND config_name NOT LIKE 'default_private_global' ORDER BY config_name ASC" key_field="config_id" value_field="config_name"  />
+		<field name="news" type="text" default="5" label="REALPIN_MENU_CATEGORY_LIST_LABEL2" description="REALPIN_MENU_CATEGORY_LIST_LABEL2_DESC" />
+		<field name="target" type="text" default="_self" label="REALPIN_MENU_CATEGORY_LIST_LABEL3" description="REALPIN_MENU_CATEGORY_LIST_LABEL3_DESC" />
+		<field name="image" type="text" default="default" label="REALPIN_MENU_CATEGORY_LIST_LABEL4" description="REALPIN_MENU_CATEGORY_LIST_LABEL4_DESC" />
+
+	</fieldset>
+	</fields>
+	</config>
+	
+</extension>
